@@ -1,8 +1,9 @@
 const router = require("express").Router();
 
 const Cart = require("../models/Cart");
+const { verifyToken, verifyTokenAndAuthorization, verifyTokenAndAdmin } = require("./verifytoken");
 
-router.post("/", async (req,res)=>{
+router.post("/",verifyToken, async (req,res)=>{
     const newCart = new Cart(req.body);
     try{
 
@@ -14,25 +15,49 @@ router.post("/", async (req,res)=>{
     }
 })
 
-router.delete("/:id", async (req,res)=>{
+router.put('/:id/:ProductId', verifyTokenAndAuthorization, async (req, res)=>{
+
+   
+
+    try{
+        const updateCart = await Cart.findByIdAndUpdate(req.params.id, {
+            $set : req.body
+        },{new:true})
+        res.status(200).json(updateCart);
+    }
+    catch(err){
+        console.log(err)
+        res.status(500).json(err)
+    }
+    
+})
+
+
+//working for admin
+router.delete("/:id",verifyTokenAndAuthorization, async (req,res)=>{
     try{
         await Cart.findByIdAndDelete(req.params.id);
-        res.status(200).json("order has been deleted.")
+        res.status(200).json("cart product has been deleted.")
     }catch(err){
         res.status(500).json(err);
     }
 })
 
-router.get("/find/:id", async (req,res)=>{
+
+// working for admin and user both
+router.get("/find/:UserID",verifyTokenAndAuthorization, async (req,res)=>{
     try{
-        const cart = await Cart.findOne(req.params.id);
+        const cart = await Cart.findOne({userID:req.params.UserID});
         res.status(200).json(cart);
     }catch(err){
         res.status(500).json(err);
     }
 })
 
-router.get("/", async (req,res)=>{
+
+//working for admin
+
+router.get("/",verifyTokenAndAdmin, async (req,res)=>{
     try{
         const carts = await Cart.find();
         res.status(200).json(carts);

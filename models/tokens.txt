@@ -1,0 +1,22 @@
+token for varun 
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YzIyZTljM2I4ZjU3NzVhY2JhMTA3OCIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE3MDc0NzgxODMsImV4cCI6MTcwNzkxMDE4M30.-CWMEKimVKIachAVnjb8celgOYpi1a48HvhXCuu2P7s
+
+
+userID for varun 
+65c22e9c3b8f5775acba1078
+
+token for admin 
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YzRjMzE1ZmJkOTg0YjY3MzI1YjcxZiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTcxMDk2NTU1MSwiZXhwIjoxNzExMzk3NTUxfQ.YMZU2qTrMie8qRo1ex9UNsQ_oPGM6qkQHueHUbq3oa8
+
+userID for admin
+65c4c315fbd984b67325b71f
+
+
+
+MONGO_URL = mongodb+srv://varunjain:Varun1415@cluster0.osu9zwb.mongodb.net/shop?retryWrites=true&w=majority
+
+PASS_SEC = varun
+
+JWT_SEC = varunjain
+
+STRIPE_KEY = sk_test_51ML7kYSAD0rysEGcvdfSwXTv0Th0TNQHozNWgKG7mrQZdfujZpg5PvFMyI4HBNBRIiABIs1HVzAm6i50HnVq3Mot00Iyg5NPda
